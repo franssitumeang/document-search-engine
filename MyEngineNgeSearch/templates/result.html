@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Query</title>
+     {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/siimple.css' %}"/>
+</head>
+<body>
+	<div class="siimple-box">
+        <div class="siimple-box-subtitle">Search Query >> '{{query}}'</div>
+    </div>
+	<div class="siimple-grid">
+            <div class="siimple-grid-row">
+	            <div class="siimple-grid-col siimple-grid-col--6">
+	            <p class="siimple-h5">Using Cosine Similarity TF/IDF : </p><br>
+	            {% for document in documents %}
+	                <p class="siimple-link">{{document.name}}</p> 
+	                <span class="siimple-tag siimple-tag--navy">Score : {{document.score | floatformat:3}}</span><br>
+	            {% endfor %}
+	            <span class="siimple-tag siimple-tag--red">{{m}}</span>
+	            </div>
+            </div>
+    </div>
+
+</body>
+</html>

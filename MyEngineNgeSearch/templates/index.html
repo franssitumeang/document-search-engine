@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Engine Nge-Search</title>
+     {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/siimple.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+    <div class="foo">
+      <span class="letter" data-letter="My">My</span>
+      <span class="letter" data-letter="Engine"  style="color: #ffbf00;">Engine</span>
+      <span class="letter" data-letter="Nge -" style="color: #ff003c;">Nge -</span>
+      <span class="letter" data-letter="Search" style="color: #15b784;">Search</span>
+    </div>
+    <form method="GET" action="result/">
+      <input type="text"  class="simple-input" name="q"><br>
+      <input type="submit" name="" class="siimple-btn siimple-btn--pink" style="margin-top: 30px; margin-left: 640px; height: 36px; font-size: 20px; width: 10%;" value="SEARCH">
+    </form>
+    
+</body> 
+</html>
