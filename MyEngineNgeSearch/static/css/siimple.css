@@ -1654,3 +1654,26 @@ body {
 
 .siimple-bg--white {
   background-color: #ffffff; }
+
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #3f465a;
+    color: white;
+    border-radius: 6.5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 6.5px;
+}

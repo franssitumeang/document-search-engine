@@ -13,15 +13,32 @@
 	<div class="siimple-grid">
             <div class="siimple-grid-row">
 	            <div class="siimple-grid-col siimple-grid-col--6">
-	            <p class="siimple-h5">Using Cosine Similarity TF/IDF : </p><br>
+	            <blockquote class="siimple-blockquote">
+				  {{total_document}} results ({{elapsed_time}} seconds)
+				</blockquote><br>
 	            {% for document in documents %}
-	                <p class="siimple-link">{{document.name}}</p> 
-	                <span class="siimple-tag siimple-tag--navy">Score : {{document.score | floatformat:3}}</span><br>
+	                <a class="siimple-link" href="{{document.name}}/">{{document.name}}</a><br>
+	                <span class="siimple-tag siimple-tag--navy">Score : {{document.score | floatformat:3}}</span><br><br>
 	            {% endfor %}
 	            <span class="siimple-tag siimple-tag--red">{{m}}</span>
 	            </div>
             </div>
     </div>
+	<div class="pagination" style="margin-left:15px;">
+		{% if documents.has_previous %}
+			<a href="/myenginengesearch/result/?q={{query}}&page={{documents.previous_page_number}}">&laquo;</a>
+		{% endif %}
+		{% for n in documents.paginator.page_range %}
+			{% if documents.number == n %}
+				<a href="/myenginengesearch/result/?q={{query}}&page={{n}}" class="active">{{n}}</a>
+			{% else %}
+				<a href="/myenginengesearch/result/?q={{query}}&page={{n}}">{{n}}</a>
+			{% endif %}
+		{% endfor %}
+		{% if documents.has_next %}
+			<a href="/myenginengesearch/result/?q={{query}}&page={{documents.next_page_number}}">&raquo;</a>
+		{% endif %}
+	</div>
 
 </body>
 </html>

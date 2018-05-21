@@ -6,4 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('myenginengesearch/', views.index),
     path('myenginengesearch/result/', views.result),
+    path('myenginengesearch/result/<str:doc_name>/', views.download),
+    path('pagination/', views.pagination),
 ]

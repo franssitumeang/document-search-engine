@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pagination</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/siimple.css' %}"/>
+
+</head>
+<body>
+<div class="pagination">
+    {% if numbers.has_previous %}
+  <a href="/pagination/?page={{numbers.previous_page_number}}">&laquo;</a>
+    {% endif %}
+{% for n in numbers.paginator.page_range %}
+    {% if numbers.number == n %}
+        <a href="/pagination/?page={{n}}" class="active">{{n}}</a>
+    {% else %}
+        <a href="/pagination/?page={{n}}">{{n}}</a>
+    {% endif %}
+{% endfor %}
+    {% if numbers.has_next %}
+    <a href="/pagination/?page={{numbers.next_page_number}}">&raquo;</a>
+    {% endif %}
+</div>
+<br><br><br>
+{% for n in numbers %}
+    {{n}}<br>
+{% endfor %}
+
+
+</body>
+</html>
